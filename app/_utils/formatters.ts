@@ -3,6 +3,7 @@
 import { State, ItemStyle } from "@/app/types";
 import { camelToDash } from "../_helpers/helpers";
 import { convertCssToTailwind } from "./cssTailwindConverter";
+import { convertCssToPrimeFlex } from "./cssPrimeFlexConverter";
 
 const defaultItemStyles: ItemStyle = {
    order: 0,
@@ -88,6 +89,27 @@ export const formatTailwind = (data: State): string => {
       .map((item) => {
          const filteredStyles = filterDefaultStyles(item.styles);
          const itemClasses = convertCssToTailwind(filteredStyles);
+         return itemClasses
+            ? `<div class="${itemClasses}">${item.text}</div>`
+            : `<div>${item.text}</div>`;
+      })
+      .join("\n  ");
+
+   return `${containerTag}
+  ${items}
+</div>`;
+};
+
+export const formatPrimeFlex = (data: State): string => {
+   const containerClasses = convertCssToPrimeFlex(data.container);
+   const containerTag = containerClasses
+      ? `<div class="${containerClasses}">`
+      : "<div>";
+
+   const items = data.items
+      .map((item) => {
+         const filteredStyles = filterDefaultStyles(item.styles);
+         const itemClasses = convertCssToPrimeFlex(filteredStyles);
          return itemClasses
             ? `<div class="${itemClasses}">${item.text}</div>`
             : `<div>${item.text}</div>`;

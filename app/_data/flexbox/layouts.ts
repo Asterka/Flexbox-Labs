@@ -292,4 +292,32 @@ export const layouts: Layout[] = [
          },
       },
    },
+   {
+      name: "Split 50-50",
+      img: verticalStack,
+      layout: {
+         items: [
+           {
+             id: 0.9724901652540943,
+             text: "2",
+             styles: {
+               width: "50%",
+               height: "auto",
+             }
+           },
+           {
+             id: 0.5868496773466019,
+             text: "3",
+             styles: {
+               width: "50%",
+               height: "auto"
+             }
+           }
+         ],
+         container: {
+           display: "flex",
+           gap: "20px"
+         }
+       }
+   },
 ];
