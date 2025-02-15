@@ -261,7 +261,6 @@ export function convertCssToPrimeFlex(cssObject: CSSProperties): string {
          IS_STATIC_PROPERTY
       ) {
          PrimeFlexClasses.push(cssPrimeFlexMap[camelCaseKey][stringValue]);
-         return;
       } else {
          switch (camelCaseKey) {
             case "gap":
