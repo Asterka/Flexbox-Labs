@@ -44,7 +44,7 @@ function DisplayCode({ state }: { state: State }) {
     <div className={styles.container}>
       <div className={styles.code__container}>
         <CodeTabs
-          tabs={tabs}
+          tabs={tabs as { title: string }[]}
           switchState={switchState}
           setSwitchState={setSwitchState}
         />
